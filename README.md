@@ -103,7 +103,7 @@ These will be explored **only if core deliverables are completed ahead of schedu
 **Deliverables**:
 
 - API reference doc
-- Extended JS-accessible WASM bindings
+- Extended JS-accessible [WASM bindings](https://github.com/datafusion-contrib/datafusion-wasm-bindings)
 
 ---
 
@@ -136,7 +136,7 @@ These will be explored **only if core deliverables are completed ahead of schedu
 
 ### Week 11–13: SOP + Docs Finalization
 
-- Design WASM release checklist (inspired by Python bindings)
+- Design WASM release checklist (reference by [Python bindings](https://github.com/apache/datafusion-python))
 - Finalize test suite
 - Write developer documentation and blog posts
 
