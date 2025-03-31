@@ -7,7 +7,7 @@
 **Location**: Canada  
 **GitHub**: [qstommyshu](https://github.com/qstommyshu)  
 **LinkedIn**: [linkedin.com/in/qi-shu](https://www.linkedin.com/in/qi-shu/)  
-**Resume**: [Link to Resume]
+**Resume**: [Link](./tommy_resume.pdf) to Resume
 
 **Previous Contributions to DataFusion**:
 
