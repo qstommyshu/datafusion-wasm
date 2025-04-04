@@ -59,12 +59,12 @@ Deliverables include a browser-based demo, improved bindings, test coverage, CI 
 
 These will be explored **only if core deliverables are completed ahead of schedule**.
 
-| Stretch Goal                                                                                             | Time Estimate | Notes                                                                                                    |
-| -------------------------------------------------------------------------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------- |
-| Compile more DataFusion features/crates to WASM                                                          | 40h           | [Complex](https://github.com/apache/datafusion/issues/7652) due to feature flags & upstream dependencies |
-| Add WASM UDF support (e.g. via [`datafusion-dft`](https://github.com/datafusion-contrib/datafusion-dft)) | 30h           | Requires careful design for cross-runtime execution                                                      |
-| Improve public interface exposure                                                                        | 25h           | Explore planner-level or advanced APIs                                                                   |
-| Enhance CI/release automation beyond basics                                                              | —             | Optional long-term maintenance track                                                                     |
+| Stretch Goal                                                                                                         | Time Estimate | Notes                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------- |
+| Compile more DataFusion features/crates to WASM                                                                      | 40h           | [Complex](https://github.com/apache/datafusion/issues/7652) due to feature flags & upstream dependencies |
+| Add WASM UDF support (e.g. via [`datafusion-dft`](https://github.com/datafusion-contrib/datafusion-dft))             | 30h           | Requires careful design for cross-runtime execution                                                      |
+| Improve documentation for [datafusion-wasm-bindings](https://github.com/datafusion-contrib/datafusion-wasm-bindings) | 25h           | README.md, how to get started contributing, add wasm to datafusion docs page, etc                        |
+| Enhance CI/release automation beyond basics                                                                          | —             | Optional long-term maintenance track                                                                     |
 
 ---
 
