@@ -10,9 +10,9 @@
 
 **Previous Contributions to DataFusion**:
 
-- Migrate subtrait tests to `insta` (part [1](https://github.com/apache/datafusion/pull/15444) & [2](https://github.com/apache/datafusion/pull/15480))
+- Migrate subtrait tests to `insta` ([part 1](https://github.com/apache/datafusion/pull/15444) & [part 2](https://github.com/apache/datafusion/pull/15480))
 - [Migrate optimizer tests to `insta`](https://github.com/apache/datafusion/pull/15446)
-- Migrate datafusion/sql tests to `insta` ([part 1](https://github.com/apache/datafusion/pull/15497), [part 2](https://github.com/apache/datafusion/pull/15499), [part 3](https://github.com/apache/datafusion/pull/15533), [part 4](https://github.com/apache/datafusion/pull/15548), [part 5](https://github.com/apache/datafusion/pull/15567) and [part 6](https://github.com/apache/datafusion/pull/15578))
+- Migrate datafusion/sql tests to `insta` ([part 1](https://github.com/apache/datafusion/pull/15497), [part 2](https://github.com/apache/datafusion/pull/15499), [part 3](https://github.com/apache/datafusion/pull/15533), [part 4](https://github.com/apache/datafusion/pull/15548), [part 5](https://github.com/apache/datafusion/pull/15567) & [part 6](https://github.com/apache/datafusion/pull/15578))
 
 ---
 
