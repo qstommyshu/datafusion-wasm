@@ -12,7 +12,7 @@
 
 - Migrate subtrait tests to `insta` (part [1](https://github.com/apache/datafusion/pull/15444) & [2](https://github.com/apache/datafusion/pull/15480))
 - [Migrate optimizer tests to `insta`](https://github.com/apache/datafusion/pull/15446)
-- Migrate datafusion/sql tests to `insta` (part [1](https://github.com/apache/datafusion/pull/15497) & [2](https://github.com/apache/datafusion/pull/15499))
+- Migrate datafusion/sql tests to `insta` ([part 1](https://github.com/apache/datafusion/pull/15497), [part 2](https://github.com/apache/datafusion/pull/15499), [part 3](https://github.com/apache/datafusion/pull/15533), [part 4](https://github.com/apache/datafusion/pull/15548), [part 5](https://github.com/apache/datafusion/pull/15567) and [part 6](https://github.com/apache/datafusion/pull/15578))
 
 ---
 
@@ -36,24 +36,24 @@ Deliverables include a browser-based demo, improved bindings, test coverage, CI 
 
 ## ✅ Deliverables
 
-| Feature / Task                                         | Time Estimate |
-| ------------------------------------------------------ | ------------- |
-| Familiarize with codebase (DataFusion + WASM bindings) | 24h           |
-| Create repo & guide to compile DataFusion into WASM    | 20h           |
-| Write documentation for setup and usage                | 3h            |
-| Blog post: “Compiling DataFusion to WASM”              | 12h           |
-| Develop browser-based SQL playground demo              | 20h           |
-| Investigate & identify public APIs to expose           | 10h           |
-| Expose interfaces via `wasm-bindgen`                   | 35h           |
-| Study Python bindings SoP (as reference)               | 3h            |
-| Design SoP for Rust/WASM bindings                      | 3h            |
-| Integrate SoP into workflow                            | 10h           |
-| Write WASM test suite                                  | 40h           |
-| Add WASM build/test CI via GitHub Actions              | 25h           |
-| Blog series reflecting on development journey          | 30h           |
-| Buffer time (in case anything is off the timeline)     | 15h           |
-
----
+| Feature / Task                                                           | Time Estimate |
+| ------------------------------------------------------------------------ | ------------- |
+| Familiarize with codebase (DataFusion + WASM bindings)                   | 24h           |
+| Create repo & guide to compile DataFusion into WASM                      | 20h           |
+| Write documentation for setup and usage                                  | 3h            |
+| Blog post: “Compiling DataFusion to WASM”                                | 12h           |
+| Develop browser-based SQL playground demo                                | 20h           |
+| Write basic test suite and integrate CI pipeline for SQL playground demo | 15h           |
+| Integrate live playground with datafusion doc page                       | 10h           |
+| Investigate & identify public APIs to expose to wasm                     | 15h           |
+| Expose interfaces via `wasm-bindgen`                                     | 35h           |
+| Study Python bindings SoP (as reference)                                 | 3h            |
+| Design SoP for Rust/WASM bindings                                        | 3h            |
+| Integrate SoP into workflow                                              | 10h           |
+| Write basic WASM binding test suite                                      | 20h           |
+| Add WASM build/test CI via GitHub Actions                                | 20h           |
+| Blog series reflecting on development journey in community (3h \* 10)    | 30h           |
+| Buffer time (in case anything is off the timeline)                       | 15h           |
 
 ## 🗂️ Stretch Goals
 
@@ -63,7 +63,7 @@ These will be explored **only if core deliverables are completed ahead of schedu
 | -------------------------------------------------------------------------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------- |
 | Compile more DataFusion features/crates to WASM                                                          | 40h           | [Complex](https://github.com/apache/datafusion/issues/7652) due to feature flags & upstream dependencies |
 | Add WASM UDF support (e.g. via [`datafusion-dft`](https://github.com/datafusion-contrib/datafusion-dft)) | 30h           | Requires careful design for cross-runtime execution                                                      |
-| Improve public interface exposure                                                                        | 30h           | Explore planner-level or advanced APIs                                                                   |
+| Improve public interface exposure                                                                        | 25h           | Explore planner-level or advanced APIs                                                                   |
 | Enhance CI/release automation beyond basics                                                              | —             | Optional long-term maintenance track                                                                     |
 
 ---
@@ -76,7 +76,7 @@ These will be explored **only if core deliverables are completed ahead of schedu
 
 - Review WASM build process & `datafusion-wasm-bindings`
 - Connect with mentors, discuss architecture & priorities
-- Read && understand through relevant issues ([#7652](https://github.com/apache/datafusion/issues/7652), [#9326](https://github.com/apache/datafusion/issues/9326), [#13818](https://github.com/apache/datafusion/issues/13838), [#9834](https://github.com/apache/datafusion/issues/9834))
+- Read && understand through relevant issues ([#7652](https://github.com/apache/datafusion/issues/7652), [#9326](https://github.com/apache/datafusion/issues/9326), [#13818](https://github.com/apache/datafusion/issues/13818), [#9834](https://github.com/apache/datafusion/issues/9834))
 
 ---
 
@@ -96,8 +96,8 @@ These will be explored **only if core deliverables are completed ahead of schedu
 
 ### Week 4–6: Interface Exposure
 
-- Investigate which internal APIs to expose via `wasm-bindgen`
-- Implement bindings for common operations (query context, register table, etc.)
+- Investigate which APIs to expose via `wasm-bindgen`
+- Implement bindings for common operations ([SQL operations](https://datafusion.apache.org/user-guide/sql/index.html))
 - Define stable JS interface contract
 
 **Deliverables**:
@@ -163,7 +163,7 @@ These will be explored **only if core deliverables are completed ahead of schedu
 
 ## 🔧 Technical Details
 
-- **Rust Crates**: `datafusion`, `arrow`, `datafusion-expr`, etc.
+- **Rust Crates**: `datafusion`, `datafusion-wasm-binding`, `datafusion-dft` etc.
 - **Tooling**: `wasm-bindgen`, `wasm-pack`, `wasm-opt`, `wasm-bindgen-test`
 - **Frontend**: HTML/JS/TS playground + bundler (Vite/Webpack)
 - **CI/CD**: GitHub Actions for WASM test matrix
@@ -173,8 +173,8 @@ These will be explored **only if core deliverables are completed ahead of schedu
 
 ## 👋 Why Me?
 
-- I'm already faimilairing myself with DataFusion with PRs!
-- I have a strong interest in DBMS/OS/Compiler area (I was very excited when I saw logical plans, external sort, predicate pushdown optimization implemented in DataFusion)
+- I'm already faimilairing myself with DataFusion with many PRs!
+- I have a strong interest and foundation in DBMS/OS/Compiler area (I was very excited when I saw logical plans, external sort, predicate pushdown optimization implemented in DataFusion)
 - I enjoy writing developer tools and working across frontend/backend boundaries
 - I have real experience with Rust, WASM, JS/TS — the exact stack needed
 - I’m excited about local-first, browser-native computation
